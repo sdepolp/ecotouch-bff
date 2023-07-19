@@ -1,11 +1,14 @@
 package cl.ecotouch.bff.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LocationRequestDTO {
-    String lat;
-    String lng;
+    private String lat;
+    private String lng;
 }

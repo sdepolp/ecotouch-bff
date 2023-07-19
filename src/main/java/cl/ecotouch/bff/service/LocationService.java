@@ -6,5 +6,5 @@ import cl.ecotouch.bff.dto.LocationRequestDTO;
 import java.util.List;
 
 public interface LocationService {
-    List<LocationDTO> getAllLocation(LocationRequestDTO location);
+    List<LocationDTO> getAllLocation(LocationRequestDTO location) throws Exception;
 }
