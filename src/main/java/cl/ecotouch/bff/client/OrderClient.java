@@ -21,6 +21,7 @@ public class OrderClient {
     private final RestTemplate request;
 
     public List<RequestPickupDTO> getRequestPickup(String url) throws Exception {
+        log.info("Request to: {}",url);
         ResponseEntity<?> response = request.exchange(url, HttpMethod.GET, null, RequestPickupDTO[].class);
 
         if (response.getStatusCode().is2xxSuccessful()) {
