@@ -14,7 +14,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 public class TransbankController {
 
         private final TransBankService transBankService;
-
+        @CrossOrigin("*")
         @PostMapping("/create-transaction/{buyOrder}/{amount}")
         public ResponseEntity<Object> createTransaction(@PathVariable("buyOrder") String buyOrder, String sessionId,
                                                         @PathVariable("amount") Double amount){
@@ -26,7 +26,7 @@ public class TransbankController {
                 return ResponseEntity.internalServerError().contentType(MediaType.APPLICATION_JSON).body(exception.getMessage());
             }
         }
-
+        @CrossOrigin("*")
         @PostMapping("/commit-transaction/{token}")
         public ResponseEntity<Object> commitTransaction(@PathVariable("token") String token){
             try{
@@ -37,7 +37,7 @@ public class TransbankController {
                 return ResponseEntity.internalServerError().contentType(MediaType.APPLICATION_JSON).body(exception.getMessage());
             }
         }
-
+        @CrossOrigin("*")
         @GetMapping("/status-transaction/{token}")
         public ResponseEntity<Object> getStatusTransaction(@PathVariable("token") String token){
             try{
@@ -48,7 +48,7 @@ public class TransbankController {
                 return ResponseEntity.internalServerError().contentType(MediaType.APPLICATION_JSON).body(exception.getMessage());
             }
         }
-
+        @CrossOrigin("*")
         @PostMapping("/refund-transaction/{token}/{amount}")
         public ResponseEntity<Object> refundTransaction(@PathVariable("token") String token, @PathVariable("amount") Double amount){
             try{
@@ -59,7 +59,7 @@ public class TransbankController {
                 return ResponseEntity.internalServerError().contentType(MediaType.APPLICATION_JSON).body(exception.getMessage());
             }
         }
-
+        @CrossOrigin("*")
         @GetMapping("/capture-transaction/{token}/{buyOrder}/{amount}")
         public ResponseEntity<Object> captureTransaction(@PathVariable("buyOrder") String buyOrder, @PathVariable("token") String token,
                                                          @PathVariable("amount") Double amount, String authorizationCode){

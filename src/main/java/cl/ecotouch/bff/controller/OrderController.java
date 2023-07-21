@@ -14,11 +14,13 @@ public class OrderController {
 
     private final OrderService orderService;
 
+    @CrossOrigin("*")
     @PostMapping(value="/get-orders")
     public ResponseEntity<?> getOrders(@RequestBody() OrderRequestDto orderRequestDto) throws Exception {
         return ResponseEntity.ok().body(orderService.getDailyOrders(orderRequestDto));
     }
 
+    @CrossOrigin("*")
     @GetMapping(value="{username}")
     public ResponseEntity<?> getOrdersByUser(@PathVariable String username) throws Exception {
         return ResponseEntity.ok().body(orderService.getOrdersByUser(username));
