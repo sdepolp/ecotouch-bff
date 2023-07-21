@@ -32,8 +32,10 @@ public class LocationClient {
     private final ObjectMapper objectMapper;
     private final RestTemplate request;
     public List<LocationDTO> getMongoPoints(String url) throws Exception {
-        ResponseEntity<?> response = request.exchange(url, HttpMethod.GET, null, LocationDTO[].class);
 
+        log.info("[getMongoPoints]: Consultando puntos MongoDB a: {}",url);
+        ResponseEntity<?> response = request.exchange(url, HttpMethod.GET, null, LocationDTO[].class);
+        log.info("[getMongoPoints] Respuesta: {}",response.getStatusCode());
         if (response.getStatusCode().is2xxSuccessful()) {
             LocationDTO[] puntos = (LocationDTO[]) response.getBody();
             log.info("LocationClient - getMongoPoints -> status code {}",response.getStatusCode());
