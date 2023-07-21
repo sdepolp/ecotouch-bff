@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class LocationController {
     private final LocationService locationService;
 
+    @CrossOrigin("*")
     @PostMapping(value="/get-all-points")
     public ResponseEntity<?> getAllPoints(@RequestBody() LocationRequestDTO location) throws Exception {
         return ResponseEntity.ok().body(locationService.getAllLocation(location));
