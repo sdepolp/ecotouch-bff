@@ -64,7 +64,8 @@ public class LocationClient {
             });
         }else{
             log.info("LocationClient - getPuntosLimpios -> error:  {}",response.getEntity().getContent());
-            throw new Exception("Internal server error");
+            return null;
+
         }
     }
 }

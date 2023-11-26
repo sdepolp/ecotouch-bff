@@ -34,7 +34,7 @@ public class LocationServiceImpl implements LocationService {
         URIBuilder builder = new URIBuilder(urlMmaPuntosLimpios+"/api/points/geo");
         builder.setParameter("lat", location.getLat())
                 .setParameter("lng", location.getLng())
-                .setParameter("distance","7");
+                .setParameter("distance","5");
         URI uri = builder.build();
 
         List<LocationDTO> locationMma = locationClient.getPuntosLimpios(uri);
